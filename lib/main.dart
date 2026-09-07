@@ -14,5 +14,5 @@ Future<void> main() async {
   // ✅ INIT INTL (WAJIB kalau pakai DateFormat + locale)
   await initializeDateFormatting('id_ID', null);
 
-  runApp(const GoEventApp());
+  runApp(const EvendlyApp());
 }

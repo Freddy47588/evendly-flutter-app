@@ -72,5 +72,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'imposing-carver-476010-k3.firebasestorage.app',
     measurementId: 'G-YDSM7B9ELS',
   );
-
 }

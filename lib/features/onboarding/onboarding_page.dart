@@ -22,18 +22,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final List<_OnboardData> _slides = const [
     _OnboardData(
       imagePath: 'assets/images/onboarding/onboarding_1.png',
-      title: 'Temukan event seru',
-      subtitle: 'Jelajahi konser, seminar, dan event komunitas yang lagi hype.',
+      title: 'Discover memorable events',
+      subtitle:
+          'Explore concerts, talks, and community experiences in one place.',
     ),
     _OnboardData(
       imagePath: 'assets/images/onboarding/onboarding_2.png',
-      title: 'Booking tiket cepat',
-      subtitle: 'Pilih event, tentukan tiket, lalu bayar. Semuanya simpel.',
+      title: 'Book tickets with ease',
+      subtitle:
+          'Choose an event, select your tickets, and complete your booking simply.',
     ),
     _OnboardData(
       imagePath: 'assets/images/onboarding/onboarding_3.png',
-      title: 'Masuk & nikmati acara',
-      subtitle: 'Simpan e-ticket kamu, scan QR, dan langsung gas ke venue!',
+      title: 'Save every moment',
+      subtitle:
+          'Keep your digital ticket ready and scan its QR code at the venue.',
     ),
   ];
 
@@ -103,7 +106,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       AppRoutes.login,
                     ),
                     child: Text(
-                      'Lewati',
+                      'Skip',
                       style: AppTextStyles.body.copyWith(
                         color: isDark
                             ? AppColors.darkTextSecondary
@@ -119,8 +122,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
               // ===== BUTTON NEXT / START =====
               GradientButton(
-                text: _index == _slides.length - 1 ? 'Mulai' : 'Lanjut',
-                onPressed: _finish,
+                text: _index == _slides.length - 1 ? 'Get started' : 'Continue',
+                onPressed: _next,
               ),
 
               const SizedBox(height: AppSpacing.sm),

@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:goevent_app/features/events/models/event_model.dart';
-import 'package:goevent_app/features/events/pages/event_detail_page.dart';
+import 'package:evendly_app/features/events/models/event_model.dart';
+import 'package:evendly_app/features/events/pages/event_detail_page.dart';
 
 class EventDetailLoaderPage extends StatelessWidget {
   final String eventId;

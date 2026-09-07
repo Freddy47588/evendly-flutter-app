@@ -1,8 +1,8 @@
 class EventFilter {
-  final String category; // "" = all
-  final bool? isGlobal; // null = all
+  final String category;
+  final bool? isGlobal;
   final bool onlyTickets;
-  final bool nearMe; // filter by city (client-side)
+  final bool nearMe;
   final int minPrice;
   final int maxPrice;
 
@@ -12,12 +12,13 @@ class EventFilter {
     this.onlyTickets = false,
     this.nearMe = false,
     this.minPrice = 0,
-    this.maxPrice = 999999999,
+    this.maxPrice = 6000000,
   });
 
   EventFilter copyWith({
     String? category,
     bool? isGlobal,
+    bool clearScope = false,
     bool? onlyTickets,
     bool? nearMe,
     int? minPrice,
@@ -25,7 +26,7 @@ class EventFilter {
   }) {
     return EventFilter(
       category: category ?? this.category,
-      isGlobal: isGlobal,
+      isGlobal: clearScope ? null : (isGlobal ?? this.isGlobal),
       onlyTickets: onlyTickets ?? this.onlyTickets,
       nearMe: nearMe ?? this.nearMe,
       minPrice: minPrice ?? this.minPrice,

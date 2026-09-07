@@ -5,14 +5,14 @@ import 'core/theme/theme_controller.dart';
 import 'routes/app_routes.dart';
 import 'features/start/start_gate.dart';
 
-class GoEventApp extends StatefulWidget {
-  const GoEventApp({super.key});
+class EvendlyApp extends StatefulWidget {
+  const EvendlyApp({super.key});
 
   @override
-  State<GoEventApp> createState() => _GoEventAppState();
+  State<EvendlyApp> createState() => _EvendlyAppState();
 }
 
-class _GoEventAppState extends State<GoEventApp> {
+class _EvendlyAppState extends State<EvendlyApp> {
   @override
   void initState() {
     super.initState();
@@ -25,7 +25,7 @@ class _GoEventAppState extends State<GoEventApp> {
       valueListenable: ThemeController.instance.notifier,
       builder: (context, mode, _) {
         return MaterialApp(
-          title: 'GoEvent',
+          title: 'Evendly',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,

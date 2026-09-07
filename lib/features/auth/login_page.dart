@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:goevent_app/routes/app_routes.dart';
+import 'package:evendly_app/routes/app_routes.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_spacing.dart';
@@ -157,14 +157,14 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: AppSpacing.sm),
               Text(
-                'GoEvent',
+                'Evendly',
                 style: AppTextStyles.h2.copyWith(
                   color: isDark ? Colors.white : textPrimary,
                 ),
               ),
               const SizedBox(height: AppSpacing.xs),
               Text(
-                'Login untuk melanjutkan',
+                'Sign in to keep discovering.',
                 style: AppTextStyles.body.copyWith(color: textSecondary),
               ),
 

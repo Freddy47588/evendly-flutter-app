@@ -59,7 +59,7 @@ class _TicketsPageState extends State<TicketsPage> {
         ? AppColors.darkTextSecondary
         : AppColors.lightTextSecondary;
 
-    // Brand accent GoEvent (biar tetap “biru GoEvent” di dark juga)
+    // Keep the Evendly accent legible in both theme modes.
     final brand = AppColors.lightPrimary;
 
     return Scaffold(

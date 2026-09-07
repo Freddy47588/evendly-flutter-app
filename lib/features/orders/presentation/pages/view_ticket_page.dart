@@ -93,7 +93,7 @@ class ViewTicketPage extends StatelessWidget {
           final fullName = (data['fullName'] ?? 'Guest').toString();
           final seat = (data['seat'] ?? 'A1').toString();
 
-          final qrPayload = 'GOEVENT|orderId=$orderId';
+          final qrPayload = 'EVENDLY|orderId=$orderId';
 
           return SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(

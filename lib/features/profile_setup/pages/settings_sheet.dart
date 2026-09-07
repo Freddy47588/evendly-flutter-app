@@ -160,10 +160,10 @@ class SettingsSheet extends StatelessWidget {
               },
             ),
 
-            // ===== About GoEvent =====
+            // About Evendly
             _SettingTile(
               icon: Icons.info_outline,
-              title: 'About GoEvent',
+              title: 'About Evendly',
               subtitle: 'App info & version',
               iconColor: brand,
               textPrimary: textPrimary,
@@ -309,7 +309,7 @@ class SettingsSheet extends StatelessWidget {
               Icon(Icons.event_available_rounded, color: brand),
               const SizedBox(width: 10),
               Text(
-                'GoEvent',
+                'Evendly',
                 style: AppTextStyles.h3.copyWith(
                   fontWeight: FontWeight.w900,
                   color: textPrimary,
@@ -322,7 +322,7 @@ class SettingsSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'GoEvent is an event discovery & ticketing app.',
+                'Discover events. Save moments.',
                 style: AppTextStyles.body.copyWith(color: textSecondary),
               ),
               const SizedBox(height: 10),
@@ -330,12 +330,12 @@ class SettingsSheet extends StatelessWidget {
               const SizedBox(height: 8),
               _AboutRow(label: 'Version', value: '1.0.0'),
               const SizedBox(height: 6),
-              _AboutRow(label: 'Build', value: 'GoEventAPP'),
+              _AboutRow(label: 'Build', value: 'Evendly'),
               const SizedBox(height: 6),
-              _AboutRow(label: 'Developer', value: 'GoEvent Team'),
+              _AboutRow(label: 'Developer', value: 'Evendly Team'),
               const SizedBox(height: 6),
               Text(
-                '© ${DateTime.now().year} GoEvent',
+                '© ${DateTime.now().year} Evendly',
                 style: AppTextStyles.caption.copyWith(color: textSecondary),
               ),
             ],
