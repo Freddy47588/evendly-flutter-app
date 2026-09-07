@@ -7,6 +7,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/theme/app_radius.dart';
+import '../../core/validation/auth_validators.dart';
 import '../../core/widgets/gradient_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -33,10 +34,14 @@ class _LoginPageState extends State<LoginPage> {
     final email = _userC.text.trim();
     final pass = _passC.text;
 
-    if (email.isEmpty || pass.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Email & password wajib diisi.")),
-      );
+    final validationError = AuthValidators.validateLogin(
+      email: email,
+      password: pass,
+    );
+    if (validationError != null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(validationError)));
       return;
     }
 
@@ -49,7 +54,6 @@ class _LoginPageState extends State<LoginPage> {
 
       final uid = cred.user!.uid;
 
-      // ✅ cek / buat doc user
       final users = FirebaseFirestore.instance.collection('users');
       final docRef = users.doc(uid);
       final snap = await docRef.get();
@@ -57,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
       bool complete = false;
 
       if (!snap.exists) {
-        // user lama yang belum punya dokumen profile
         await docRef.set({
           'uid': uid,
           'email': cred.user!.email,

@@ -3,13 +3,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class EventModel {
   final String eventId;
   final String title;
-  final String category; // tampilan asli
-  final String categoryKey; // hasil normalisasi untuk filter
+  final String category;
+  final String categoryKey;
   final DateTime startAt;
   final String locationName;
   final int price;
   final bool isGlobal;
-  final String imageAsset; // bisa URL / asset path
+  final String imageAsset;
   final String about;
   final OrganizerModel organizer;
   final double lat;
@@ -36,7 +36,6 @@ class EventModel {
   });
 
   static String _key(dynamic v) {
-    // normalisasi aman: trim + lowercase
     return (v ?? '').toString().trim().toLowerCase();
   }
 
@@ -47,17 +46,24 @@ class EventModel {
   }
 
   factory EventModel.fromDoc(DocumentSnapshot<Map<String, dynamic>> doc) {
-    final d = doc.data() ?? {};
+    return EventModel.fromMap(doc.data() ?? {}, documentId: doc.id);
+  }
+
+  factory EventModel.fromMap(
+    Map<String, dynamic> data, {
+    required String documentId,
+  }) {
+    final d = data;
     final org = (d['organizer'] as Map?)?.cast<String, dynamic>() ?? {};
     final map = (d['map'] as Map?)?.cast<String, dynamic>() ?? {};
 
     final rawCategory = (d['category'] ?? '').toString();
 
     return EventModel(
-      eventId: (d['eventId'] ?? doc.id).toString(),
+      eventId: (d['eventId'] ?? documentId).toString(),
       title: (d['title'] ?? '').toString(),
       category: rawCategory,
-      categoryKey: _key(rawCategory), // ✅ key untuk filter
+      categoryKey: _key(rawCategory),
       startAt: _parseStartAt(d['startAt']),
       locationName: (d['locationName'] ?? '').toString(),
       price: (d['price'] is int)

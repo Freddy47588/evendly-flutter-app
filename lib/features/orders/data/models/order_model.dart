@@ -4,7 +4,7 @@ class OrderModel {
   final String? orderId;
 
   final String userId;
-  final String fullName; // ✅ auto dari users/{uid}.name
+  final String fullName;
 
   final String eventId;
   final String eventTitle;
@@ -21,8 +21,8 @@ class OrderModel {
   final String paymentMethod; // card/paypal
   final String status; // success/pending
 
-  final String seat; // optional, kita isi otomatis
-  final DateTime? createdAt; // server timestamp (dibaca di view)
+  final String seat;
+  final DateTime? createdAt;
 
   const OrderModel({
     this.orderId,
@@ -61,7 +61,7 @@ class OrderModel {
       'paymentMethod': paymentMethod,
       'status': status,
       'seat': seat,
-      'createdAt': FieldValue.serverTimestamp(), // ✅ realtime server
+      'createdAt': FieldValue.serverTimestamp(),
     };
   }
 

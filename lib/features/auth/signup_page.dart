@@ -6,6 +6,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/theme/app_radius.dart';
+import '../../core/validation/auth_validators.dart';
 import '../../core/widgets/gradient_button.dart';
 import '../../routes/app_routes.dart';
 
@@ -41,22 +42,16 @@ class _SignupPageState extends State<SignupPage> {
     final pass = _passC.text;
     final confirm = _confirmC.text;
 
-    if (name.isEmpty || email.isEmpty || pass.isEmpty || confirm.isEmpty) {
+    final validationError = AuthValidators.validateSignUp(
+      name: name,
+      email: email,
+      password: pass,
+      confirmation: confirm,
+    );
+    if (validationError != null) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text("Semua field wajib diisi.")));
-      return;
-    }
-    if (pass != confirm) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Konfirmasi password tidak sama.")),
-      );
-      return;
-    }
-    if (pass.length < 6) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Password minimal 6 karakter.")),
-      );
+      ).showSnackBar(SnackBar(content: Text(validationError)));
       return;
     }
 
@@ -67,10 +62,8 @@ class _SignupPageState extends State<SignupPage> {
         password: pass,
       );
 
-      // opsional: set displayName
       await cred.user?.updateDisplayName(name);
 
-      // ✅ Buat dokumen user (profil belum complete)
       final uid = cred.user!.uid;
       await FirebaseFirestore.instance.collection('users').doc(uid).set({
         'uid': uid,
@@ -85,7 +78,6 @@ class _SignupPageState extends State<SignupPage> {
 
       if (!mounted) return;
 
-      // ✅ Arahkan ke Profile Setup Step 1
       Navigator.pushNamedAndRemoveUntil(
         context,
         AppRoutes.createUsername,

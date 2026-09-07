@@ -11,7 +11,6 @@ Future<void> main() async {
   // ✅ INIT FIREBASE (WAJIB)
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // ✅ INIT INTL (WAJIB kalau pakai DateFormat + locale)
   await initializeDateFormatting('id_ID', null);
 
   runApp(const EvendlyApp());

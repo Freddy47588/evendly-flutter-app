@@ -53,7 +53,6 @@ class ProfilePage extends StatelessWidget {
                 return ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
-                    // ===== AVATAR DEFAULT (FIX) =====
                     Center(
                       child: CircleAvatar(
                         radius: 44,

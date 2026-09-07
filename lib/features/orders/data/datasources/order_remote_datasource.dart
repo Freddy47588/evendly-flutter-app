@@ -13,7 +13,6 @@ class OrderRemoteDataSource {
     final user = auth.currentUser;
     if (user == null) throw Exception('User belum login.');
 
-    // safety: userId harus match
     if (order.userId != user.uid) {
       throw Exception('userId order tidak sama dengan user login.');
     }

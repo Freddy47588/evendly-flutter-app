@@ -241,9 +241,6 @@ class PrivacySecurityPage extends StatelessWidget {
     );
   }
 
-  // =========================
-  // DELETE ACCOUNT (FIXED)
-  // =========================
   static Future<void> _deleteAccount(BuildContext context) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;

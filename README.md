@@ -2,7 +2,7 @@
 
 > Discover events. Save moments.
 
-[![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)](https://flutter.dev) [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com) [![CI](https://github.com/your-github-username/evendly-flutter-app/actions/workflows/flutter_ci.yml/badge.svg)](../../actions/workflows/flutter_ci.yml)
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)](https://flutter.dev) [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com) [![CI](https://github.com/Freddy47588/evendly-flutter-app/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/Freddy47588/evendly-flutter-app/actions/workflows/flutter_ci.yml)
 
 Evendly is a Flutter event discovery and digital ticketing application that helps people explore events, find nearby experiences, save favourites, and manage QR-based digital tickets.
 
@@ -65,7 +65,7 @@ Discover an event → view its details → place an order → open the digital t
 
 ## 🧪 Testing
 
-The test suite covers deterministic filtering logic and does not require a live Firebase project.
+The Firebase-independent test suite covers event filtering and parsing, authentication validation, and the reusable navigation bar.
 
 ```bash
 flutter test
@@ -86,7 +86,7 @@ The GitHub Actions workflow runs `flutter pub get`, `flutter analyze`, and `flut
 ### Installation
 
 ```bash
-git clone https://github.com/your-github-username/evendly-flutter-app.git
+git clone https://github.com/Freddy47588/evendly-flutter-app.git
 cd evendly-flutter-app
 flutter pub get
 ```

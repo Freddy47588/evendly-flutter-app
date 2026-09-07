@@ -31,7 +31,6 @@ class _EvendlyAppState extends State<EvendlyApp> {
           darkTheme: AppTheme.dark,
           themeMode: mode,
 
-          // ✅ jangan pakai initialRoute
           home: const StartGate(),
           routes: AppRoutes.routes,
         );

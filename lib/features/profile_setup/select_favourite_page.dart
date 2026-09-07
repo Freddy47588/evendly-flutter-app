@@ -20,7 +20,6 @@ class _SelectFavouritePageState extends State<SelectFavouritePage> {
   final Set<String> _selected = {};
   bool _saving = false;
 
-  // ✅ KATEGORI FIX
   static const kCategories = <String>[
     'Music',
     'Education',
